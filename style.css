@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,9 +9,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #fefcea, #f1da36);
   color: #333;
-  line-height: 1.6;
-  padding: 20px;
   transition: background 0.5s, color 0.5s;
+  padding: 20px;
 }
 
 header {
@@ -112,4 +111,51 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
- 
+}
+
+button:hover {
+  background: #2ecc71;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: #34495e;
+  color: white;
+}
+
+/* Animated button */
+.animated-button {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.animated-button:hover {
+  transform: scale(1.05);
+  background-color: #1abc9c;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Dark mode styles */
+body.dark {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark header {
+  background: #333;
+}
+
+body.dark nav ul {
+  background: #111;
+}
+
+body.dark form {
+  background: #2c2c2c;
+  color: #f0f0f0;
+}
+
+body.dark footer {
+  background: #111;
+}
