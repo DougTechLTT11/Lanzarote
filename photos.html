@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lanzarote Photos & Videos</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Prevent flash of light mode if dark mode is enabled
+    if (localStorage.getItem('darkMode') === '1') {
+      document.documentElement.classList.add('dark');
+      document.body && document.body.classList.add('dark');
+    }
+  </script>
+</head>
+<body class="no-weather">
+  <nav class="menu-bar">
+    <div class="site-name">Lanzarote</div>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" aria-current="page">Photos & Videos</a></li>
+      <li><a href="food-attractions.html">Food & Attractions</a></li>
+      <li><a href="booking.html">Booking</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>Photos & Videos of Lanzarote</h1>
+  </header>
+  <div class="content">
+    <p>Discover Lanzarote through our favorite photos and videos! From volcanic landscapes to beautiful beaches, here are some highlights of this amazing island.</p>
+    <h2>Featured Video</h2>
+    <div class="video-wrapper" style="display: flex; justify-content: center; margin-bottom: 32px;">
+      <iframe src="https://www.youtube.com/embed/iTl691sNrJI" title="Lanzarote : the 12 must see!" allowfullscreen></iframe>
+    </div>
+    <div class="gallery" style="display: flex; justify-content: center; gap: 24px; margin-bottom: 24px;">
+      <div class="gallery-item"><img src="Img1.jpg" alt="Volcano view"></div>
+      <div class="gallery-item"><img src="Img2.jpg" alt="Beach sunset"></div>
+      <div class="gallery-item"><img src="img3.jpg" alt="Lagoon"></div>
+    </div>
+    <p>Each photo captures a unique aspect of Lanzarote, from its dramatic volcanic peaks to its tranquil seaside towns.</p>
+  </div>
+
+  <button class="dark-toggle-fab" onclick="toggleDarkMode()" aria-label="Toggle dark mode"></button>
+
+  <script>
+    function setDarkMode(enabled) {
+      if (enabled) {
+        document.body.classList.add('dark');
+        document.documentElement.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+        document.documentElement.classList.remove('dark');
+      }
+      localStorage.setItem('darkMode', enabled ? '1' : '0');
+      updateDarkIcon();
+    }
+
+    function toggleDarkMode() {
+      const isDark = !document.body.classList.contains('dark');
+      setDarkMode(isDark);
+    }
+
+    function updateDarkIcon() {
+      const btn = document.querySelector('.dark-toggle-fab');
+      if (!btn) return;
+      if (document.body.classList.contains('dark')) {
+        btn.innerHTML = '🌙';
+      } else {
+        btn.innerHTML = '☀️';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkPref = localStorage.getItem('darkMode') === '1';
+      setDarkMode(darkPref);
+    });
+  </script>
+
+  <footer style="width:100%;text-align:center;margin:32px 0 12px 0;font-size:1.1rem;opacity:0.7;">© 2025 Đʁ</footer>
+</body>
+</html> 

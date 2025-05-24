@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lanzarote Food & Attractions</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Prevent flash of light mode if dark mode is enabled
+    if (localStorage.getItem('darkMode') === '1') {
+      document.documentElement.classList.add('dark');
+      document.body && document.body.classList.add('dark');
+    }
+  </script>
+</head>
+<body class="no-weather">
+  <nav class="menu-bar">
+    <div class="site-name">Lanzarote</div>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="photos.html">Photos & Videos</a></li>
+      <li><a class="active" aria-current="page">Food & Attractions</a></li>
+      <li><a href="booking.html">Booking</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>Food & Attractions in Lanzarote</h1>
+  </header>
+  <div class="content">
+    <h2><span role="img" aria-label="food">🍽️</span> Must-Try Foods</h2>
+    <ul>
+      <li><strong>Papas arrugadas</strong> — Salted wrinkly potatoes with mojo sauce <span role="img" aria-label="potato">🥔</span><br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Papasarrugadas.jpg/500px-Papasarrugadas.jpg" alt="Papas arrugadas" style="width:180px;border-radius:12px;margin:8px 0;box-shadow:0 2px 8px #ff6600;"></li>
+      <li><strong>Fresh seafood</strong> — Enjoy the catch of the day at seaside restaurants <span role="img" aria-label="fish">🐟</span><br><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Seafood" style="width:180px;border-radius:12px;margin:8px 0;box-shadow:0 2px 8px #00bcd4;"></li>
+      <li><strong>Gofio</strong> — Traditional Canarian flour used in many dishes <span role="img" aria-label="bread">🍞</span><br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Gofioescaldado.jpg/500px-Gofioescaldado.jpg" alt="Gofio" style="width:180px;border-radius:12px;margin:8px 0;box-shadow:0 2px 8px #ffeb3b;"></li>
+    </ul>
+    <h2 style="color:#ff6600;"><span role="img" aria-label="volcano">🌋</span> Top Attractions <span role="img" aria-label="beach">🏖️</span></h2>
+    <ul>
+      <li><strong>Timanfaya National Park</strong> — Explore volcanic landscapes and geothermal demonstrations <span role="img" aria-label="volcano">🌋</span><br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Timanfaya_National_Park_landscape.jpg/500px-Timanfaya_National_Park_landscape.jpg" alt="Timanfaya National Park" style="width:180px;border-radius:12px;margin:8px 0;box-shadow:0 2px 8px #ff5722;"></li>
+      <li><strong>Jameos del Agua</strong> — Stunning cave system transformed by artist César Manrique <span role="img" aria-label="cave">🕳️</span><br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Har%C3%ADa_-_MNLC_-_LZ-1_-_Jameos_del_Agua_18_ies.jpg/500px-Har%C3%ADa_-_MNLC_-_LZ-1_-_Jameos_del_Agua_18_ies.jpg" alt="Jameos del Agua" style="width:180px;border-radius:12px;margin:8px 0;box-shadow:0 2px 8px #2196f3;"></li>
+      <li><strong>Cueva de los Verdes</strong> — Mysterious lava tube with guided tours <span role="img" aria-label="tube">🛤️</span><br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lanzarote_5_Luc_Viatour.jpg/500px-Lanzarote_5_Luc_Viatour.jpg" alt="Cueva de los Verdes" style="width:180px;border-radius:12px;margin:8px 0;box-shadow:0 2px 8px #8bc34a;"></li>
+      <li><strong>Beaches</strong> — Relax on Playa Blanca, Papagayo, and Famara <span role="img" aria-label="beach">🏝️</span><br><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Beach" style="width:180px;border-radius:12px;margin:8px 0;box-shadow:0 2px 8px #ffd600;"></li>
+    </ul>
+    <p style="background:linear-gradient(90deg,#a96d1a 0%,#ae5d41 100%);padding:12px 0;border-radius:8px;font-weight:bold;">From unique volcanic wonders to delicious local cuisine, Lanzarote offers something for every traveler! <span role="img" aria-label="sun">☀️</span></p>
+  </div>
+
+  <button class="dark-toggle-fab" onclick="toggleDarkMode()" aria-label="Toggle dark mode"></button>
+
+  <script>
+    function setDarkMode(enabled) {
+      if (enabled) {
+        document.body.classList.add('dark');
+        document.documentElement.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+        document.documentElement.classList.remove('dark');
+      }
+      localStorage.setItem('darkMode', enabled ? '1' : '0');
+      updateDarkIcon();
+    }
+
+    function toggleDarkMode() {
+      const isDark = !document.body.classList.contains('dark');
+      setDarkMode(isDark);
+    }
+
+    function updateDarkIcon() {
+      const btn = document.querySelector('.dark-toggle-fab');
+      if (!btn) return;
+      if (document.body.classList.contains('dark')) {
+        btn.innerHTML = '🌙';
+      } else {
+        btn.innerHTML = '☀️';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkPref = localStorage.getItem('darkMode') === '1';
+      setDarkMode(darkPref);
+    });
+  </script>
+
+  <footer style="width:100%;text-align:center;margin:32px 0 12px 0;font-size:1.1rem;opacity:0.7;">© 2025 Đʁ</footer>
+</body>
+</html> 
