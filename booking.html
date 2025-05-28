@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking & Travel Info - Lanzarote</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Prevent flash of light mode if dark mode is enabled
+    if (localStorage.getItem('darkMode') === '1') {
+      document.documentElement.classList.add('dark');
+      document.body && document.body.classList.add('dark');
+    }
+  </script>
+</head>
+<body class="no-weather">
+  <nav class="menu-bar">
+    <div class="site-name">Lanzarote</div>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="photos.html">Photos & Videos</a></li>
+      <li><a href="food-attractions.html">Food & Attractions</a></li>
+      <li><a class="active" aria-current="page">Booking</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>Booking & Travel Information</h1>
+  </header>
+  <div class="content">
+    <h2>Book Your Trip</h2>
+    <ul>
+      <li><a href="https://www.easyjet.com" target="_blank">EasyJet Flights</a></li>
+      <li><a href="https://www.britishairways.com" target="_blank">British Airways Flights</a></li>
+      <li><a href="https://www.booking.com" target="_blank">Hotels on Booking.com</a></li>
+      <li><a href="https://www.trivago.com" target="_blank">Compare Hotel Prices</a></li>
+    </ul>
+    <h2>Travel Insurance</h2>
+    <ul>
+      <li><a href="https://www.comparethemarket.com/travel-insurance/" target="_blank">Compare the Market</a></li>
+      <li><a href="https://www.moneysupermarket.com/travel-insurance/" target="_blank">MoneySuperMarket</a></li>
+    </ul>
+    <h2>Tips</h2>
+    <ul>
+      <li>Book flights and hotels early for the best prices.</li>
+      <li>Consider travel insurance for peace of mind.</li>
+      <li>Check passport and visa requirements before you travel.</li>
+    </ul>
+    <p>Safe travels and enjoy your Lanzarote adventure!</p>
+  </div>
+
+  <button class="dark-toggle-fab" onclick="toggleDarkMode()" aria-label="Toggle dark mode"></button>
+
+  <script>
+    function setDarkMode(enabled) {
+      if (enabled) {
+        document.body.classList.add('dark');
+        document.documentElement.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+        document.documentElement.classList.remove('dark');
+      }
+      localStorage.setItem('darkMode', enabled ? '1' : '0');
+      updateDarkIcon();
+    }
+
+    function toggleDarkMode() {
+      const isDark = !document.body.classList.contains('dark');
+      setDarkMode(isDark);
+    }
+
+    function updateDarkIcon() {
+      const btn = document.querySelector('.dark-toggle-fab');
+      if (!btn) return;
+      if (document.body.classList.contains('dark')) {
+        btn.innerHTML = '🌙';
+      } else {
+        btn.innerHTML = '☀️';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkPref = localStorage.getItem('darkMode') === '1';
+      setDarkMode(darkPref);
+    });
+  </script>
+
+  <footer style="width:100%;text-align:center;margin:32px 0 12px 0;font-size:1.1rem;opacity:0.7;">© 2025 Đʁ</footer>
+</body>
+</html> 
